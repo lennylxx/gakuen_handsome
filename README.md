@@ -31,5 +31,5 @@ struct fwd {
 ```
 
 ### Other
-`generate_header_code.exe` is used for calculating the checksum (File offset: `0x0c`) in `fwd_header` based on `Game.Title` and `Game.Author` in `setting.txt`.
-This checksum is for file completion validation, copyright control or so. `arc.fwd` has this checksum too, same with `src.fwd`'s.
+`generate_header_code.exe` is used for calculating the checksum (File offset: `0x0c`, 4 bytes) in `fwd_header` based on `Game.Title` and `Game.Author` in `setting.txt`.
+This checksum is for file integrity validation, copyright control or so. `arc.fwd` has this checksum too, same with `src.fwd`'s.

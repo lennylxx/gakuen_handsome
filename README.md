@@ -20,8 +20,8 @@ The last offset in the offset table indicates last entry's start address, copy f
 struct fwd {
     struct fwd_header {
         unsigned char magic[12];
-        unsigned char unknown1[4];
-        unsigned char unknown2[16];
+        unsigned char checksum[4];
+        unsigned char unknown[16];
     } header;
     struct fwd_entry_offset {
         unsigned long padding;
@@ -29,3 +29,7 @@ struct fwd {
     } entry_offsets [6];
 };
 ```
+
+### Other
+`generate_header_code.exe` is used for calculating the checksum (File offset: `0x0c`) in `fwd_header` based on `Game.Title` and `Game.Author` in `setting.txt`.
+This checksum is for file completion validation, copyright control or so. `arc.fwd` has this checksum too, same with `src.fwd`'s.
